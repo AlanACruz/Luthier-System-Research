@@ -29,6 +29,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: test.pdf
-        path: $(pwd)/output/data/output/
+        path: ./data/output
         if-no-files-found: error
           
