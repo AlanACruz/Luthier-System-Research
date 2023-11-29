@@ -25,6 +25,12 @@ jobs:
     - name: List Output Files
       run: ls -hal $(pwd)/output
 
+    - name: List Output Files
+      run: ls -hal $(pwd)/output/data
+
+    - name: List Output Files
+      run: ls -hal $(pwd)/output/data/output
+
     - name: Archive Output Artifacts
       uses: actions/upload-artifact@v3
       with:
