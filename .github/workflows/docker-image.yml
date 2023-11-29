@@ -23,12 +23,12 @@ jobs:
       run: pwd
 
     - name: List Output Files
-      run: ls -hal ./output
+      run: ls -hal ./data/output
 
     - name: Archive Output Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: test.pdf
-        path: ./output/test.pdf
+        path: ./data/output/test.pdf
         if-no-files-found: error
           
