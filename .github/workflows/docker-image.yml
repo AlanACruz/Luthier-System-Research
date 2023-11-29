@@ -19,14 +19,8 @@ jobs:
     - name: Build the Docker Image
       run: docker build . --output=./output --target=output-build  --file Dockerfile --tag lutier-system:$(date +%s)
     
-    - name: Show Output Directory
+    - name: Show Current Directory
       run: pwd
-
-    - name: List Output Files
-      run: ls -hal $(pwd)/output
-
-    - name: List Output Files
-      run: ls -hal $(pwd)/output/data
 
     - name: List Output Files
       run: ls -hal $(pwd)/output/data/output
@@ -35,6 +29,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: test.pdf
-        path: ./data/output/test.pdf
+        path: $(pwd)/output/data/output/test.pdf
         if-no-files-found: error
           
