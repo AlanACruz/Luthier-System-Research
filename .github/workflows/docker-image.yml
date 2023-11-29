@@ -16,9 +16,6 @@ jobs:
 
     - uses: actions/checkout@v3
 
-    - name: Make Output directory
-      run: mkdir output
-
     - name: Build the Docker Image
       run: docker build . --output=./output --target=output-build  --file Dockerfile --tag lutier-system:$(date +%s)
     
