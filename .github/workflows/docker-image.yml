@@ -13,11 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
     - uses: actions/checkout@v3
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag lutier-system:$(date +%s)
+    
+    - name: Show Current Directory
+      run: pwd
+
+    - name: List Files
+      run: ls -hal
+
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
+        name: test.pdf
         path: output/test.pdf
+        if-no-files-found: error
           
