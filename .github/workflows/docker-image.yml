@@ -23,7 +23,7 @@ jobs:
       run: pwd
 
     - name: List Output Files
-      run: ls -hal ./data/output
+      run: ls -hal $(pwd)/output
 
     - name: Archive Output Artifacts
       uses: actions/upload-artifact@v3
