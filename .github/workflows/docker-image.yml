@@ -13,11 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
+
     - uses: actions/checkout@v3
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag lutier-system:$(date +%s)
+
+    - name: Make output directory
+      run: mkdir output
+
+    - name: Copy the artifacts
+      run: docker cp lutier-system:$(date +%s):/data/output ./output
     
     - name: Show Current Directory
       run: pwd
