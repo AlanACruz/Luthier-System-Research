@@ -16,22 +16,19 @@ jobs:
 
     - uses: actions/checkout@v3
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag lutier-system:$(date +%s) --name lutier-system-$(date +%s)
-
-    - name: Make output directory
+    - name: Make Output directory
       run: mkdir output
 
-    - name: Copy the artifacts
-      run: docker cp lutier-system-$(date +%s):/data/output ./output
+    - name: Build the Docker Image
+      run: docker build . --output=./output --target=output  --file Dockerfile --tag lutier-system:$(date +%s)
     
-    - name: Show Current Directory
-      run: pwd
+    - name: Show Output Directory
+      run: pwd output
 
-    - name: List Files
-      run: ls -hal
+    - name: List Output Files
+      run: ls -hal output
 
-    - name: Archive production artifacts
+    - name: Archive Output Artifacts
       uses: actions/upload-artifact@v3
       with:
         name: test.pdf
