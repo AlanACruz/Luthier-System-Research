@@ -2,4 +2,4 @@
 
 FROM pandoc/latex
 COPY . /data
-RUN pandoc --from="markdown" --to="pdf" --output="test.pdf" test.md
+RUN pandoc --from="markdown" --to="pdf" --output="./output/test.pdf" test.md
